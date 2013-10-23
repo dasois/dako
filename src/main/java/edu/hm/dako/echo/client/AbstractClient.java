@@ -77,14 +77,18 @@ public abstract class AbstractClient implements Runnable {
         sharedData.getStartSignal().await();
     }
 
-    //TODO Studienarbeit: Echo-PDU erzeugen und gemaess Protokoll fuellen
+    //DONE Studienarbeit: Echo-PDU erzeugen und gemaess Protokoll fuellen
     protected EchoPDU constructEchoPDU(int messageNumber) {
         // Echo-Nachricht aufbauen
         EchoPDU pdu = new EchoPDU();
         
         // Echo PDU befuellen
         pdu.setClientName(threadName);
-        pdu.setMessage("Test");		//! Änderung nötig, Berücksichtigung von messageLength        
+        StringBuilder sb = new StringBuilder(messageLength);
+        for (int i=0; i<messageLength; i++) {
+        	sb.append('x');
+        }
+        pdu.setMessage(sb.toString());		//! Änderung nötig, Berücksichtigung von messageLength        
         
         // Letzter Request?
         if (messageNumber == (numberOfMessagesToSend - 1)) {

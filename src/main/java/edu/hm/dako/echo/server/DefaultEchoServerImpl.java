@@ -84,7 +84,7 @@ public class DefaultEchoServerImpl implements EchoServer {
             closeConnection();
         }
 
-    	/* TODO Studienarbeit: Methode echo zum Empfang und Senden einer Echo-Nachricht schreiben.
+    	/* DONE Studienarbeit: Methode echo zum Empfang und Senden einer Echo-Nachricht schreiben.
          * Hinweis: 
          * Bei einem multi-threaded Server ist hier auch zu pruefen, 
          * ob der letzte Request eines Clients empfangen wird. 
@@ -94,18 +94,15 @@ public class DefaultEchoServerImpl implements EchoServer {
         private void echo() throws Exception {
         	EchoPDU receivedPdu = (EchoPDU) con.receive();
         	startTime = System.nanoTime();	//oder schon vorher?
-        	EchoPDU responsePdu = EchoPDU.createServerEchoPDU(receivedPdu, startTime);
-        	responsePdu.setMessage("Server: Copy!");
-			con.send(responsePdu);
+        	con.send(EchoPDU.createServerEchoPDU(receivedPdu, startTime));
 			finished = receivedPdu.getLastRequest()||singleConnectionForClient;
         }
 
         private void closeConnection() {          
-           	//TODO Studienarbeit: Verbindung schliessen
+           	//DONE Studienarbeit: Verbindung schliessen
 			try {
 				con.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
         }

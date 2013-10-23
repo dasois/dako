@@ -21,3 +21,5 @@ Variation der Threadanzahl, Single-threaded TCP, 1, 62, 62, 62, 0, 1, 1, 1, 0, 1
 Variation der Threadanzahl, Single-threaded TCP, 1, 116, 116, 116, 0, 1, 1, 1, 0, 12, 23.10.2013 17:37:48, 23.10.2013 17:37:49
 Variation der Threadanzahl, Single-threaded TCP, 1, 60, 60, 60, 0, 1, 1, 1, 0, 11, 23.10.2013 17:42:52, 23.10.2013 17:42:53
 Variation der Threadanzahl, Single-threaded TCP, 10, 1312, 1313, 1312, 2, 1000, 1000, 1000, 0, 17, 23.10.2013 17:43:47, 23.10.2013 17:46:8
+Variation der Threadanzahl, Single-threaded TCP, 100, 3652, 3698, 3489, 0, 1000, 1000, 1000, 0, 18, 23.10.2013 17:48:56, 23.10.2013 17:49:33
+Variation der Threadanzahl, Single-threaded TCP, 4, 195, 195, 195, 48, 4000, 4000, 4000, 0, 122, 23.10.2013 18:1:5, 23.10.2013 18:4:26

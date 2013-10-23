@@ -37,7 +37,7 @@ public class DefaultEchoServerImpl implements EchoServer {
 
                 // Neuen Workerthread starten
                 executorService.submit(new EchoWorker(connection));
-                System.out.println("Echo-Worker gestartet.");
+                //DEBUG: System.out.println("Echo-Worker gestartet.");
             } catch (Exception e) {
                 log.error("Exception beim Entgegennehmen von Verbindungswuenschen: " + e);
             }

@@ -82,10 +82,9 @@ public abstract class AbstractClient implements Runnable {
         // Echo-Nachricht aufbauen
         EchoPDU pdu = new EchoPDU();
         
-
         // Echo PDU befuellen
-        
-        
+        pdu.setClientName(threadName);
+        pdu.setMessage("Test");		//! Änderung nötig, Berücksichtigung von messageLength        
         
         // Letzter Request?
         if (messageNumber == (numberOfMessagesToSend - 1)) {

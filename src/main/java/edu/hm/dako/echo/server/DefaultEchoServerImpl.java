@@ -37,6 +37,7 @@ public class DefaultEchoServerImpl implements EchoServer {
 
                 // Neuen Workerthread starten
                 executorService.submit(new EchoWorker(connection));
+                System.out.println("Echo-Worker gestartet.");
             } catch (Exception e) {
                 log.error("Exception beim Entgegennehmen von Verbindungswuenschen: " + e);
             }
@@ -91,18 +92,21 @@ public class DefaultEchoServerImpl implements EchoServer {
          * Weiterhin ist die Zeitmessung fuer die Requestbearbeitung einzubauen.
          */
         private void echo() throws Exception {
-           
-        	
-        	
-           
+        	EchoPDU receivedPdu = (EchoPDU) con.receive();
+        	startTime = System.nanoTime();	//oder schon vorher?
+			con.send(EchoPDU.createServerEchoPDU(receivedPdu, startTime));
+			finished = receivedPdu.getLastRequest()||singleConnectionForClient;
         }
 
         private void closeConnection() {          
            	//TODO Studienarbeit: Verbindung schliessen
-        	
-        	
-        	
-        	
+        	while(true) {
+	        	try {
+					con.close();
+				} catch (Exception e) {
+					continue;
+				}
+        	}
         }
     }
 }

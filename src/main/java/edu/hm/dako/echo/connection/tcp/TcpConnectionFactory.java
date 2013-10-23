@@ -15,8 +15,9 @@ public class TcpConnectionFactory implements ConnectionFactory {
 		while (!connected) {
 			try {
 				//TODO Studienarbeit: TCP-Verbindung erzeugen
-			
-				
+				Socket serverSocket = new Socket(remoteServerAddress, serverPort);
+				connection = new TcpConnection(serverSocket);
+				connected = true;
 				
 			} catch (Exception e) {
 				// try again

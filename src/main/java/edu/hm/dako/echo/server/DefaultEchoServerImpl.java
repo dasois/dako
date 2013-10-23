@@ -94,19 +94,20 @@ public class DefaultEchoServerImpl implements EchoServer {
         private void echo() throws Exception {
         	EchoPDU receivedPdu = (EchoPDU) con.receive();
         	startTime = System.nanoTime();	//oder schon vorher?
-			con.send(EchoPDU.createServerEchoPDU(receivedPdu, startTime));
+        	EchoPDU responsePdu = EchoPDU.createServerEchoPDU(receivedPdu, startTime);
+        	responsePdu.setMessage("Server: Copy!");
+			con.send(responsePdu);
 			finished = receivedPdu.getLastRequest()||singleConnectionForClient;
         }
 
         private void closeConnection() {          
            	//TODO Studienarbeit: Verbindung schliessen
-        	while(true) {
-	        	try {
-					con.close();
-				} catch (Exception e) {
-					continue;
-				}
-        	}
+			try {
+				con.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
     }
 }

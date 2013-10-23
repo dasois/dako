@@ -51,21 +51,20 @@ public class TcpConnection implements Connection {
     @Override
     public Serializable receive() throws Exception {
     	//TODO Studienarbeit: Nachricht aus dem Eingabestrom lesen und als Returnwert zurueckgeben
-   
-    
+    	return (Serializable) in.readObject();
     }
 
     @Override
     public void send(Serializable message) throws Exception {
     	//TODO Studienarbeit: Nachricht in den Ausgabestrom schreiben
-    
-    	
+    	out.writeObject(message);
+    	out.flush();
     }
 
     @Override
     public void close() throws IOException {
     	//TODO Studienarbeit: Ausgabestrom leeren (flush) und Verbindung schliessen 
-    
-    	
+    	out.flush();
+    	out.close();
     }
 }

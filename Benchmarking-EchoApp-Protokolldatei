@@ -1,23 +1,2 @@
-# 
-# Satzaufbau:
-#
-# 01 Messungstyp als String
-# 02 Implementierungstyp als String
-# 03 Anzahl Client-Threads 
-# 04 Durchschnittliche RTT
-# 05 Maximale RTT
-# 06 Minimale RTT  
-# 07 Durchschnittliche Serverbearbeitungszeit 
-# 08 Anzahl geplanter Requests/Responses
-# 09 Anzahl gesendeter Requests
-# 10 Anzahl empfangener Responses
-# 11 Anzahl verlorener Echo Responses 
-# 12 Maximale Heap-Size des Clients 
-# 13 Startzeit der Messung
-# 14 Endezeit der Messung
-#
-Variation der Threadanzahl, Single-threaded TCP, 1, 61, 61, 61, 0, 1, 1, 1, 0, 12, 23.10.2013 17:24:34, 23.10.2013 17:24:35
-Variation der Threadanzahl, Single-threaded TCP, 1, 62, 62, 62, 0, 1, 1, 1, 0, 12, 23.10.2013 17:28:18, 23.10.2013 17:28:18
-Variation der Threadanzahl, Single-threaded TCP, 1, 116, 116, 116, 0, 1, 1, 1, 0, 12, 23.10.2013 17:37:48, 23.10.2013 17:37:49
-Variation der Threadanzahl, Single-threaded TCP, 1, 60, 60, 60, 0, 1, 1, 1, 0, 11, 23.10.2013 17:42:52, 23.10.2013 17:42:53
-Variation der Threadanzahl, Single-threaded TCP, 10, 1312, 1313, 1312, 2, 1000, 1000, 1000, 0, 17, 23.10.2013 17:43:47, 23.10.2013 17:46:8
+Variation der Threadanzahl, Multi-threaded TCP, 10, 0, 0, 9223372036854, 0, 1000, 0, 0, 0, 0, 23.10.2013 18:20:50, 23.10.2013 18:20:50
+Variation der Threadanzahl, Multi-threaded TCP, 10, 40, 40, 39, 1, 1000, 1000, 1000, 0, 15, 23.10.2013 18:25:45, 23.10.2013 18:25:59

@@ -33,7 +33,7 @@ public class TcpConnection implements Connection {
                 socket.getPort());
 
         try {
-        	//TODO Studienarbeit: Objektstreams fuer die Ein- und Ausgabe erzeugen
+        	//DONE Studienarbeit: Objektstreams fuer die Ein- und Ausgabe erzeugen
         	out = new ObjectOutputStream(socket.getOutputStream());
         	in = new ObjectInputStream(socket.getInputStream());
 
@@ -50,20 +50,20 @@ public class TcpConnection implements Connection {
 
     @Override
     public Serializable receive() throws Exception {
-    	//TODO Studienarbeit: Nachricht aus dem Eingabestrom lesen und als Returnwert zurueckgeben
+    	//DONE Studienarbeit: Nachricht aus dem Eingabestrom lesen und als Returnwert zurueckgeben
     	return (Serializable) in.readObject();
     }
 
     @Override
     public void send(Serializable message) throws Exception {
-    	//TODO Studienarbeit: Nachricht in den Ausgabestrom schreiben
+    	//DONE Studienarbeit: Nachricht in den Ausgabestrom schreiben
     	out.writeObject(message);
     	out.flush();
     }
 
     @Override
     public void close() throws IOException {
-    	//TODO Studienarbeit: Ausgabestrom leeren (flush) und Verbindung schliessen 
+    	//DONE Studienarbeit: Ausgabestrom leeren (flush) und Verbindung schliessen 
     	out.flush();
     	out.close();
     }

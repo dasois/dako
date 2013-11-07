@@ -32,10 +32,11 @@ public final class ServerFactory {
             case TCPSingleThreaded:
                 return new DefaultEchoServerImpl(Executors.newSingleThreadExecutor(), getDecoratedServerSocket(
                         new TcpServerSocket(DEFAULT_SERVER_PORT)), false);
+                
             case TCPMultiThreaded:
-            	//TODO Studienarbeit: TCP-Multi-threaded Server erzeugen
-
-
+            	//DONE Studienarbeit: TCP-Multi-threaded Server erzeugen
+            	return new DefaultEchoServerImpl(Executors.newCachedThreadPool(), getDecoratedServerSocket(
+            			new TcpServerSocket(DEFAULT_SERVER_PORT)), false);
             	
             case UDPSingleThreaded:
             	//TODO Studienarbeit: UDP-Single-threaded Server erzeugen
@@ -69,7 +70,7 @@ public final class ServerFactory {
          * Im ImplementationType der naechsten Anweisungen muss der Server, 
     	 * der gestartet werden soll, angegeben werden
          */   	
-        getServer(UserInterfaceInputParameters.ImplementationType.TCPSingleThreaded).start();
+        getServer(UserInterfaceInputParameters.ImplementationType.TCPMultiThreaded).start();
     }
 
     private static class DecoratingServerSocket implements ServerSocket {

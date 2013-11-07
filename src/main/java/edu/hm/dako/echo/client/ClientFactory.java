@@ -27,7 +27,11 @@ public final class ClientFactory {
                             param.getNumberOfMessages(), param.getClientThinkTime(),
                             sharedData, getDecoratedFactory(new TcpConnectionFactory()));
                 case TCPMultiThreaded:
-                	//TODO Studienarbeit: Konfiguration und Erzeugung des richtigen Clients
+                	//DONE Studienarbeit: Konfiguration und Erzeugung des richtigen Clients
+                	return new ConnectionReusingClient(param.getRemoteServerPort(),
+                            param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
+                            param.getNumberOfMessages(), param.getClientThinkTime(),
+                            sharedData, getDecoratedFactory(new TcpConnectionFactory()));
                     
                 	
                 	

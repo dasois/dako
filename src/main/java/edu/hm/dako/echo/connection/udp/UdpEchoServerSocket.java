@@ -15,7 +15,27 @@ public class UdpEchoServerSocket implements ServerSocket {
         this.socket = new UdpSocket(serverPort, 2000, 5000);
     }
 
-    //TODO Studienarbeit: Alle erforderlichen Methoden ergaenzen
+	@Override
+	public Connection accept() throws Exception {
+		return new UdpServerConnection(socket);
+		
+	}
+
+	@Override
+	public void close() throws Exception {
+		socket.close();
+		// Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isClosed() {
+		return socket.isClosed();
+		// Auto-generated method stub
+	
+	}
+
+    // Studienarbeit: Alle erforderlichen Methoden ergaenzen
     
     
     

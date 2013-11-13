@@ -15,12 +15,13 @@ public class UdpClientConnection implements Connection {
      */
     private final int receivingTimeout;
 
-    // Weglassen aller Override-Methoden und Inhalt des Konstruktors
+    // weglassen alle Override-Methoden und Inhalt des Konstruktors
     
     public UdpClientConnection(UdpSocket clientSocket, int receivingTimeout) throws Exception {
-    	//DONE: Studienarbeit: Parameter übernehmen
+    	
     	this.clientSocket = clientSocket;
     	this.receivingTimeout = receivingTimeout;
+    	//DONE Studienarbeit: Parameter uebernehmen
     }
 
     @Override

@@ -34,16 +34,18 @@ public final class ServerFactory {
                         new TcpServerSocket(DEFAULT_SERVER_PORT)), false);
                 
             case TCPMultiThreaded:
+            	// DONE Studienarbeit: TCP-Multi-threaded Server erzeugen
             	return new DefaultEchoServerImpl(Executors.newCachedThreadPool(), getDecoratedServerSocket(
                         new TcpServerSocket(DEFAULT_SERVER_PORT)), false);
 
             case UDPSingleThreaded:
-            	// Studienarbeit: UDP-Single-threaded Server erzeugen
+            	// DONE Studienarbeit: UDP-Single-threaded Server erzeugen
             	return new DefaultEchoServerImpl(Executors.newSingleThreadExecutor(), getDecoratedServerSocket(
                         new UdpEchoServerSocket(DEFAULT_SERVER_PORT)), false);
             	
             	
             case UDPMultiThreaded:
+            	// DONE Studienarbeit: UDP-Multi-threaded Server erzeugen
                 return new DefaultEchoServerImpl(Executors.newCachedThreadPool(), getDecoratedServerSocket(
                         new UdpEchoServerSocket(DEFAULT_SERVER_PORT)), false);
                 

@@ -19,7 +19,7 @@ public class UdpServerConnection implements Connection {
         udpRemoteObject = new UdpRemoteObject(serverSocket.getRemoteAddress(),serverSocket.getRemotePort(),  receive() );
     	
     	// Daten aus dem UdpSocket zwischenspeichern, damit es fuer weitere Verbindungsanfragen verwendet werden kann
-h   }
+   }
 
 	@Override
 	public Serializable receive() throws Exception {

@@ -15,51 +15,54 @@ import edu.hm.dako.echo.connection.udp.UdpClientConnectionFactory;
  */
 public final class ClientFactory {
 
-    private ClientFactory() {
-    }
+	private ClientFactory() {
+	}
 
-    public static Runnable getClient(UserInterfaceInputParameters param, int numberOfClient, SharedClientStatistics sharedData) {
-        try {
-            switch (param.getImplementationType()) {
-                case TCPSingleThreaded:
-                    return new NewConnectionClient(param.getRemoteServerPort(),
-                            param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
-                            param.getNumberOfMessages(), param.getClientThinkTime(),
-                            sharedData, getDecoratedFactory(new TcpConnectionFactory()));
-                case TCPMultiThreaded:
-                	//DONE Studienarbeit: Konfiguration und Erzeugung des richtigen Clients
-                	return new ConnectionReusingClient(param.getRemoteServerPort(),
-                            param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
-                            param.getNumberOfMessages(), param.getClientThinkTime(),
-                            sharedData, getDecoratedFactory(new TcpConnectionFactory()));
-                    
-                	
-                	
-                case UDPSingleThreaded:
-                	//TODO Studienarbeit: Konfiguration und Erzeugung des richtigen Clients
-              
-                	
-                	
-                	
-                case UDPMultiThreaded:
-                    return new ConnectionReusingClient(param.getRemoteServerPort(),
-                            param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
-                            param.getNumberOfMessages(), param.getClientThinkTime(),
-                            sharedData, getDecoratedFactory(new UdpClientConnectionFactory()));
-                case RmiMultiThreaded:
-                    return new ConnectionReusingClient(param.getRemoteServerPort(),
-                            param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
-                            param.getNumberOfMessages(), param.getClientThinkTime(),
-                            sharedData, getDecoratedFactory(new RmiClientConnectionFactory()));
-                default:
-                    throw new RuntimeException("Unknown type: " + param.getImplementationType());
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+	public static Runnable getClient(UserInterfaceInputParameters param, int numberOfClient, SharedClientStatistics sharedData) {
+		try {
+			switch (param.getImplementationType()) {
+			case TCPSingleThreaded:
+				return new NewConnectionClient(param.getRemoteServerPort(),
+						param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
+						param.getNumberOfMessages(), param.getClientThinkTime(),
+						sharedData, getDecoratedFactory(new TcpConnectionFactory()));
+			case TCPMultiThreaded:
+				//DONE Studienarbeit: Konfiguration und Erzeugung des richtigen Clients
+				return new ConnectionReusingClient(param.getRemoteServerPort(),
+						param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
+						param.getNumberOfMessages(), param.getClientThinkTime(),
+						sharedData, getDecoratedFactory(new TcpConnectionFactory()));
 
-    public static ConnectionFactory getDecoratedFactory(ConnectionFactory connectionFactory) {
-        return new DecoratingConnectionFactory(connectionFactory);
-    }
+
+
+			case UDPSingleThreaded:
+				// DONE Studienarbeit: Konfiguration und Erzeugung des richtigen Clients
+				return new NewConnectionClient(param.getRemoteServerPort(),
+						param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
+						param.getNumberOfMessages(), param.getClientThinkTime(),
+						sharedData, getDecoratedFactory(new UdpClientConnectionFactory()));
+
+
+
+			case UDPMultiThreaded:
+				return new ConnectionReusingClient(param.getRemoteServerPort(),
+						param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
+						param.getNumberOfMessages(), param.getClientThinkTime(),
+						sharedData, getDecoratedFactory(new UdpClientConnectionFactory()));
+			case RmiMultiThreaded:
+				return new ConnectionReusingClient(param.getRemoteServerPort(),
+						param.getRemoteServerAddress(), numberOfClient, param.getMessageLength(),
+						param.getNumberOfMessages(), param.getClientThinkTime(),
+						sharedData, getDecoratedFactory(new RmiClientConnectionFactory()));
+			default:
+				throw new RuntimeException("Unknown type: " + param.getImplementationType());
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static ConnectionFactory getDecoratedFactory(ConnectionFactory connectionFactory) {
+		return new DecoratingConnectionFactory(connectionFactory);
+	}
 }

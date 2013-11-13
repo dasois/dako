@@ -11,7 +11,7 @@ public class UdpServerConnection implements Connection {
 
     private UdpRemoteObject udpRemoteObject;
     
-    // Studienarbeit: Ergaenzen des Konstruktors und der fehlenden Methoden receive und send; dabei udpRemoteObject nutzen
+    // DONE Studienarbeit: Ergaenzen des Konstruktors und der fehlenden Methoden receive und send; dabei udpRemoteObject nutzen
     
     public UdpServerConnection(UdpSocket serverSocket) throws Exception {
 
@@ -19,28 +19,20 @@ public class UdpServerConnection implements Connection {
         udpRemoteObject = new UdpRemoteObject(serverSocket.getRemoteAddress(),serverSocket.getRemotePort(),  receive() );
     	
     	// Daten aus dem UdpSocket zwischenspeichern, damit es fuer weitere Verbindungsanfragen verwendet werden kann
-       
-    	
-    }
+h   }
 
 	@Override
 	public Serializable receive() throws Exception {
-		
-		serverSocket.receive(timeout);
-	//TODO  Auto-generated method stub
+		return (Serializable) serverSocket.receive(0);
 	}
 
 	@Override
 	public void send(Serializable message) throws Exception {
 		serverSocket.send(udpRemoteObject.getRemoteAddress(),udpRemoteObject.getRemotePort(),message);
-		//  Auto-generated method stub
-		
 	}
 
 	@Override
 	public void close() throws Exception {
-		serverSocket.close();
-		
+		serverSocket.close();	
 	}
-
 }

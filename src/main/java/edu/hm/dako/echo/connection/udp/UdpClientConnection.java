@@ -22,36 +22,23 @@ public class UdpClientConnection implements Connection {
     	this.clientSocket = clientSocket;
     	this.receivingTimeout = receivingTimeout;
     	// Studienarbeit: Parameter uebernehmen
-    
-    	
     }
 
     @Override
     public Serializable receive() throws Exception {
-    	
+    	//DONE: Studienarbeit: Nachricht mit Timeout empfangen und an Aufrufer zurueckgeben
     	return (Serializable) clientSocket.receive(receivingTimeout);
-    	
-    	// Studienarbeit: Nachricht mit Timeout empfangen und an Aufrufer zurueckgeben
-        
-    	
     }
 
     @Override
     public void send(Serializable message) throws Exception {
+    	//DONE: Studienarbeit: Nachricht an Partner versenden
     	clientSocket.send(clientSocket.getRemoteAddress(),clientSocket.getRemotePort(),message);
-    	
-    	
-    	// Studienarbeit: Nachricht an Partner versenden
-      
-    	
     }
 
     @Override
     public void close() throws IOException {
-    	
+    	//DONE: Studienarbeit: Socket schliessen
     	clientSocket.close();
-    	// Studienarbeit: Socket schliessen
-       
     }
-
 }

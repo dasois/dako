@@ -7,24 +7,13 @@ import java.net.InetAddress;
 
 public class UdpClientConnectionFactory implements ConnectionFactory {
 
+	//DONE Studienarbeit: UDP-Socket erzeugen, Verbindungsparameter setzen und UDP-Verbindung erzeugen 
+	//Hinweis: Empfangspuffer: 2000 Byte, Sendepuffer: 3000 Byte
     @Override
     public Connection connectToServer(String remoteServerAddress, int serverPort, int localPort) throws Exception {
     	UdpClientConnection Connection = null;
-    	boolean connected = false;
-    	while(!connected){
-    		try{
-    			UdpSocket clientSocket = new UdpSocket(localPort,3000,2000);
-    			Connection = new UdpClientConnection(clientSocket,);
-    			connected = true;
-    		}catch(Exception e){
-    			//try again
-    		}
+		UdpSocket clientSocket = new UdpSocket(localPort,3000,2000);
+		Connection = new UdpClientConnection(clientSocket,0);
     	return Connection;
-    	}
-    	
-    	//TODO Studienarbeit: UDP-Socket erzeugen, Verbindungsparameter setzen und UDP-Verbindung erzeugen 
-    	//Hinweis: Empfangspuffer: 2000 Byte, Sendepuffer: 3000 Byte
-    	
-    	
     }
 }

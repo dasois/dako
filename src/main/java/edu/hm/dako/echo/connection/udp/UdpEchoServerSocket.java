@@ -14,6 +14,8 @@ public class UdpEchoServerSocket implements ServerSocket {
     	// Puffergroessen muessen fuer die Lasttests so belassen werden
         this.socket = new UdpSocket(serverPort, 2000, 5000);
     }
+    
+    // TODO: Studienarbeit: Alle erforderlichen Methoden ergaenzen
 
 	@Override
 	public Connection accept() throws Exception {
@@ -23,28 +25,11 @@ public class UdpEchoServerSocket implements ServerSocket {
 
 	@Override
 	public void close() throws Exception {
-		socket.close();
-		// Auto-generated method stub
-		
+		socket.close();		
 	}
 
 	@Override
 	public boolean isClosed() {
 		return socket.isClosed();
-		// Auto-generated method stub
-	
 	}
-
-    // Studienarbeit: Alle erforderlichen Methoden ergaenzen
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

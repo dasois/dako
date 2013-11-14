@@ -6,13 +6,21 @@ import edu.hm.dako.echo.connection.ConnectionFactory;
 import java.net.InetAddress;
 
 public class UdpClientConnectionFactory implements ConnectionFactory {
-
+	InetAddress serverAdd;
 	//DONE Studienarbeit: UDP-Socket erzeugen, Verbindungsparameter setzen und UDP-Verbindung erzeugen 
 	//Hinweis: Empfangspuffer: 2000 Byte, Sendepuffer: 3000 Byte
     @Override
     public Connection connectToServer(String remoteServerAddress, int serverPort, int localPort) throws Exception {
     	UdpClientConnection Connection = null;
 		UdpSocket clientSocket = new UdpSocket(localPort,3000,2000);
+		try{
+			 serverAdd = InetAddress.getByName( remoteServerAddress );
+			}
+			catch( Exception ex ){
+			  ex.printStackTrace();  // big problem
+			}
+		clientSocket.setRemoteAddress(serverAdd);
+		clientSocket.setRemotePort(serverPort);
 		Connection = new UdpClientConnection(clientSocket,0);
     	return Connection;
     }

@@ -18,8 +18,8 @@ import java.util.concurrent.TimeUnit;
 public class Tester implements BenchmarkingClientUserInterface {
 
     private UserInterfaceResultData data;   // Ergebnisdaten des Tests
-    private static final int NUMBER_OF_MESSAGES = 100;
-    private static final int NUMBER_OF_CLIENTS = 10;
+    private static final int NUMBER_OF_MESSAGES = 2;
+    private static final int NUMBER_OF_CLIENTS = 2;
 
     private class TestStarterEchoServer implements Runnable {
 

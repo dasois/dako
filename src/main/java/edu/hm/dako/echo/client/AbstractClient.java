@@ -88,7 +88,7 @@ public abstract class AbstractClient implements Runnable {
         for (int i=0; i<messageLength; i++) {
         	sb.append('x');
         }
-        pdu.setMessage(sb.toString());		//! Änderung nötig, Berücksichtigung von messageLength        
+        pdu.setMessage(sb.toString());     
         
         // Letzter Request?
         if (messageNumber == (numberOfMessagesToSend - 1)) {

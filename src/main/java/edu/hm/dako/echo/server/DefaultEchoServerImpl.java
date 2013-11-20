@@ -95,7 +95,7 @@ public class DefaultEchoServerImpl implements EchoServer {
         	EchoPDU receivedPdu = (EchoPDU) con.receive();
         	startTime = System.nanoTime();	//oder schon vorher?
         	con.send(EchoPDU.createServerEchoPDU(receivedPdu, startTime));
-			finished = receivedPdu.getLastRequest()||singleConnectionForClient;
+			finished = receivedPdu.getLastRequest()||!singleConnectionForClient;
         }
 
         private void closeConnection() {          

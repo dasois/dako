@@ -13,3 +13,4 @@ Variation der Threadanzahl, Single-threaded UDP, 2, 75, 76, 74, 0, 4, 4, 4, 0, 8
 Variation der Threadanzahl, Multi-threaded UDP, 2, 37, 38, 36, 0, 4, 4, 4, 0, 8, 4.12.2013 17:29:0, 4.12.2013 17:29:1
 Variation der Threadanzahl, Single-threaded TCP, 2, 80, 82, 79, 0, 4, 4, 4, 0, 8, 4.12.2013 17:29:7, 4.12.2013 17:29:7
 Variation der Threadanzahl, Multi-threaded TCP, 2, 58, 68, 48, 0, 4, 4, 4, 0, 8, 4.12.2013 17:29:29, 4.12.2013 17:29:29
+Variation der Threadanzahl, Multi-threaded RMI, 10, 5, 6, 3, 0, 1000, 1000, 1000, 0, 18, 5.12.2013 0:41:56, 5.12.2013 0:42:7

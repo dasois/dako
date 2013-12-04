@@ -8,7 +8,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.rmi.Naming;
-import java.rmi.Remote; //DONE
 
 public class RmiClientConnectionFactory implements ConnectionFactory {
 
@@ -16,8 +15,8 @@ public class RmiClientConnectionFactory implements ConnectionFactory {
     public Connection connectToServer(String remoteServerAddress, int serverPort, int localPort) throws Exception {
     	
     	//DONE Studienarbeit: Lookup durchfuehren und RMI-Connection erzeugen
-		Remote remote = Naming.lookup( "rmi://" + remoteServerAddress + "/RMIEchoServer");
-     	RmiConnection rcon = new RmiConnection((RMIEchoServerRemote) remote);
+    	RMIEchoServerRemote remote = (RMIEchoServerRemote) Naming.lookup( "rmi://" + remoteServerAddress + "/RMIEchoServer");
+     	RmiConnection rcon = new RmiConnection(remote);
      	return rcon;
     }
 }

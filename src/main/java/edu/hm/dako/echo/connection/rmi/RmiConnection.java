@@ -25,7 +25,7 @@ public class RmiConnection implements Connection {
     @Override
     public void send(Serializable message) throws Exception {
     	//DONE Studienarbeit: Aufruf der entfernten Echo-Methode
-    	echoServer.echo((EchoPDU) message);
+    	receivedPdu = echoServer.echo((EchoPDU) message);
     }
 
     @Override

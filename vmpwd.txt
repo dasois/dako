@@ -1,0 +1,5 @@
+VirtualMachines
+
+user: Administrator/dakopwdfg
+ip: 10.28.55.89
+ip: 10.28.55.90

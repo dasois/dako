@@ -15,12 +15,11 @@ public class UdpEchoServerSocket implements ServerSocket {
         this.socket = new UdpSocket(serverPort, 2000, 5000);
     }
     
-    // DONE Studienarbeit: Alle erforderlichen Methoden ergaenzen
+    // DONE: Studienarbeit: Alle erforderlichen Methoden ergaenzen
 
 	@Override
 	public Connection accept() throws Exception {
 		return new UdpServerConnection(socket);
-		
 	}
 
 	@Override

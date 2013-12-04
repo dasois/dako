@@ -15,9 +15,11 @@ public class RMIEchoServerRemoteImpl extends UnicastRemoteObject implements RMIE
     public RMIEchoServerRemoteImpl() throws RemoteException {
     }
 
-	//TODO Studienarbeit: Methode echo programmieren
+	//DONE Studienarbeit: Methode echo programmieren
     public EchoPDU echo(EchoPDU message) throws RemoteException {
-        
+    	
+    	long startTime = System.nanoTime();
+		return EchoPDU.createServerEchoPDU(message, startTime);
     	
     	
     	

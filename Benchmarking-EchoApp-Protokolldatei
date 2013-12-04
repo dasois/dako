@@ -1,0 +1,15 @@
+Variation der Threadanzahl, Single-threaded UDP, 2, 58, 60, 56, 0, 4, 4, 4, 0, 8, 4.12.2013 17:19:13, 4.12.2013 17:19:13
+Variation der Threadanzahl, Single-threaded UDP, 2, 42, 43, 41, 0, 4, 4, 4, 0, 8, 4.12.2013 17:19:30, 4.12.2013 17:19:30
+Variation der Threadanzahl, Multi-threaded UDP, 2, 50, 52, 49, 0, 4, 4, 4, 0, 8, 4.12.2013 17:19:46, 4.12.2013 17:19:46
+Variation der Threadanzahl, Single-threaded TCP, 2, 80, 80, 80, 0, 4, 4, 4, 0, 8, 4.12.2013 17:20:2, 4.12.2013 17:20:3
+Variation der Threadanzahl, Multi-threaded TCP, 2, 69, 69, 68, 0, 4, 4, 4, 0, 8, 4.12.2013 17:21:49, 4.12.2013 17:21:49
+Variation der Threadanzahl, Single-threaded TCP, 2, 101, 101, 101, 0, 4, 4, 4, 0, 8, 4.12.2013 17:21:55, 4.12.2013 17:21:56
+Variation der Threadanzahl, Multi-threaded UDP, 2, 48, 55, 41, 0, 4, 4, 4, 0, 8, 4.12.2013 17:22:2, 4.12.2013 17:22:2
+Variation der Threadanzahl, Single-threaded UDP, 2, 39, 42, 36, 0, 4, 4, 4, 0, 8, 4.12.2013 17:23:13, 4.12.2013 17:23:13
+Variation der Threadanzahl, Multi-threaded UDP, 2, 39, 45, 33, 0, 4, 4, 4, 0, 9, 4.12.2013 17:25:51, 4.12.2013 17:25:51
+Variation der Threadanzahl, Single-threaded TCP, 2, 77, 79, 76, 0, 4, 4, 4, 0, 8, 4.12.2013 17:25:56, 4.12.2013 17:25:56
+Variation der Threadanzahl, Multi-threaded TCP, 2, 58, 67, 50, 0, 4, 4, 4, 0, 8, 4.12.2013 17:26:1, 4.12.2013 17:26:1
+Variation der Threadanzahl, Single-threaded UDP, 2, 75, 76, 74, 0, 4, 4, 4, 0, 8, 4.12.2013 17:28:10, 4.12.2013 17:28:10
+Variation der Threadanzahl, Multi-threaded UDP, 2, 37, 38, 36, 0, 4, 4, 4, 0, 8, 4.12.2013 17:29:0, 4.12.2013 17:29:1
+Variation der Threadanzahl, Single-threaded TCP, 2, 80, 82, 79, 0, 4, 4, 4, 0, 8, 4.12.2013 17:29:7, 4.12.2013 17:29:7
+Variation der Threadanzahl, Multi-threaded TCP, 2, 58, 68, 48, 0, 4, 4, 4, 0, 8, 4.12.2013 17:29:29, 4.12.2013 17:29:29

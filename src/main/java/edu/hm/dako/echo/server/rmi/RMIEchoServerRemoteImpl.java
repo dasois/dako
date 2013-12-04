@@ -16,12 +16,9 @@ public class RMIEchoServerRemoteImpl extends UnicastRemoteObject implements RMIE
     }
 
 	//DONE Studienarbeit: Methode echo programmieren
-    public EchoPDU echo(EchoPDU message) throws RemoteException {
-    	
-    	long startTime = System.nanoTime();
-		return EchoPDU.createServerEchoPDU(message, startTime);
-    	
-    	
-    	
-    }
+    public EchoPDU echo(EchoPDU pdu) throws RemoteException {
+    	log.debug("echo on RMI-Server invoked.");
+    	EchoPDU pduresponse = EchoPDU.createServerEchoPDU(pdu, System.nanoTime());
+    	return pduresponse;
+	}
 }

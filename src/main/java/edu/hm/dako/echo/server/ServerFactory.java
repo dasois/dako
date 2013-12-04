@@ -41,13 +41,13 @@ public final class ServerFactory {
             case UDPSingleThreaded:
             	// DONE Studienarbeit: UDP-Single-threaded Server erzeugen
             	return new DefaultEchoServerImpl(Executors.newSingleThreadExecutor(), getDecoratedServerSocket(
-                        new UdpEchoServerSocket(DEFAULT_SERVER_PORT)), false);
+                        new UdpEchoServerSocket(DEFAULT_SERVER_PORT)), true);
             	
             	
             case UDPMultiThreaded:
             	// DONE Studienarbeit: UDP-Multi-threaded Server erzeugen
                 return new DefaultEchoServerImpl(Executors.newCachedThreadPool(), getDecoratedServerSocket(
-                        new UdpEchoServerSocket(DEFAULT_SERVER_PORT)), false);
+                        new UdpEchoServerSocket(DEFAULT_SERVER_PORT)), true);
                 
             case RmiMultiThreaded:
                 return new RMIEchoServerImpl(RMI_SERVER_PORT);
@@ -74,7 +74,7 @@ public final class ServerFactory {
          * Im ImplementationType der naechsten Anweisungen muss der Server, 
     	 * der gestartet werden soll, angegeben werden
          */   	
-        getServer(UserInterfaceInputParameters.ImplementationType.UDPSingleThreaded).start();
+        getServer(UserInterfaceInputParameters.ImplementationType.RmiMultiThreaded).start();
     }
 
     private static class DecoratingServerSocket implements ServerSocket {

@@ -1,11 +1,12 @@
 package edu.hm.dako.echo.server.rmi;
 
-import edu.hm.dako.echo.server.EchoServer;
+import java.rmi.registry.Registry;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.PropertyConfigurator;
 
-import java.rmi.registry.Registry;
+import edu.hm.dako.echo.server.EchoServer;
 
 /**
  * Startet das RMI-Registry lokal und den RMI-Echo-Server.
@@ -30,9 +31,9 @@ public class RMIEchoServerImpl implements EchoServer {
             rmiRegistry = java.rmi.registry.LocateRegistry.createRegistry(port); 
             log.debug("RMI registry bereit");
 
-            //TODO Studienarbeit: RMI-Echo-Server-Implementierung instanziieren und rebind durchfuehren
-            
-            
+            //DONE Studienarbeit: RMI-Echo-Server-Implementierung instanziieren und rebind durchfuehren
+            rmiRegistry.rebind(RMI_ECHO_SERVER_RMI_NAME, new RMIEchoServerRemoteImpl());
+                        
             
             System.out.println("EchoServer gestartet, wartet auf Clients...");
         } catch (Exception e) {

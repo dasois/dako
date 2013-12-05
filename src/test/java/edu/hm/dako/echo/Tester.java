@@ -18,8 +18,8 @@ import java.util.concurrent.TimeUnit;
 public class Tester implements BenchmarkingClientUserInterface {
 
     private UserInterfaceResultData data;   // Ergebnisdaten des Tests
-    private static final int NUMBER_OF_MESSAGES = 2;
-    private static final int NUMBER_OF_CLIENTS = 2;
+    private static final int NUMBER_OF_MESSAGES = 100;
+    private static final int NUMBER_OF_CLIENTS = 10;
 
     private class TestStarterEchoServer implements Runnable {
 
@@ -87,6 +87,11 @@ public class Tester implements BenchmarkingClientUserInterface {
         param.setNumberOfMessages(NUMBER_OF_MESSAGES);
         param.setNumberOfClients(NUMBER_OF_CLIENTS);
         param.setImplementationType(type);
+        
+        //Fix RMI-Test
+        if (ImplementationType.RmiMultiThreaded == type) {
+        	param.setRemoteServerPort(ServerFactory.RMI_SERVER_PORT);
+        }
 
         // Benchmarking-Client instanzieren und Benchmark starten
         BenchmarkingClient benchClient = new BenchmarkingClient();

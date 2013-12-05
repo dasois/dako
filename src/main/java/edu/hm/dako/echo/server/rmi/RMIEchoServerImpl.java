@@ -43,6 +43,8 @@ public class RMIEchoServerImpl implements EchoServer {
 
     @Override
     public void stop() throws Exception {
-        rmiRegistry.unbind(RMI_ECHO_SERVER_RMI_NAME);
+    	try {
+    		rmiRegistry.unbind(RMI_ECHO_SERVER_RMI_NAME);
+    	} catch (Exception e) {}
     }
 }

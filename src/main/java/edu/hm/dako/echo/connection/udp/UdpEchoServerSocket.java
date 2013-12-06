@@ -17,17 +17,31 @@ public class UdpEchoServerSocket implements ServerSocket {
     
     // DONE: Studienarbeit: Alle erforderlichen Methoden ergaenzen
 
-	@Override
+    // Die erforderlichen Methoden sind accept(), close() und isClosed().
+    
+    
+	/**
+	 * Legt die Art der Kommunikation fest und ermöglicht die Kontaktaufnahme .
+	 * @return UdpServerConnection gibt eine UDP-verbindung zurück.
+	 * @throws Exception wird geworfen wenn der Verbindungspunkt nicht Ordnungsgemäß erstellt werden kann.
+	 */
 	public Connection accept() throws Exception {
 		return new UdpServerConnection(socket);
 	}
 
-	@Override
+	
+	/**
+	 * Schliesst den Socket und wird beim Herunterfahren des Servers aufgerufen.
+	 * @throws Exception wird geworfen wenn der Socket nicht geschlossen werden kann.
+	 */
 	public void close() throws Exception {
 		socket.close();		
 	}
 
-	@Override
+	/**
+	 * Gibt zurueck ob der Socket schon geschlossen ist oder nicht.
+	 * @return boolean true, falls der Socket schon geschlossen ist.
+	 */
 	public boolean isClosed() {
 		return socket.isClosed();
 	}

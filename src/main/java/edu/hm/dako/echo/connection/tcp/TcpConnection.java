@@ -25,7 +25,10 @@ public class TcpConnection implements Connection {
     
     // Verwendetes TCP-Socket
     private final Socket socket;
-
+    /**
+     * Dient dem Kommunikationsaufbau über das TCP Protokol.
+     * @param socket Über diesen Socket soll in verwendung von TCP kommuniziert werden.
+     */
     public TcpConnection(Socket socket) {
         this.socket = socket;
 
@@ -34,8 +37,8 @@ public class TcpConnection implements Connection {
 
         try {
         	//DONE Studienarbeit: Objektstreams fuer die Ein- und Ausgabe erzeugen
-        	out = new ObjectOutputStream(socket.getOutputStream());
-        	in = new ObjectInputStream(socket.getInputStream());
+        	out = new ObjectOutputStream(socket.getOutputStream());	//Öffnen eines Ausgabestroms
+        	in = new ObjectInputStream(socket.getInputStream());	//Öffnen eines EIngabestroms
 
             log.debug("Standardgroesse des Empfangspuffers der Verbindung: " + socket.getReceiveBufferSize() +
                     " Byte");
@@ -48,20 +51,23 @@ public class TcpConnection implements Connection {
         }
     }
 
-    @Override
+    /** Blockiert bis eine Nachricht eintrifft.
+     * @return Serializable Das erhaltene Serializable-Objekt
+     */
     public Serializable receive() throws Exception {
     	//DONE Studienarbeit: Nachricht aus dem Eingabestrom lesen und als Returnwert zurueckgeben
     	return (Serializable) in.readObject();
     }
 
-    @Override
+    /** Sendet eine Nachricht an den Kommunikationspartner.
+     * @param Die zu sendende Nachricht.     */
     public void send(Serializable message) throws Exception {
     	//DONE Studienarbeit: Nachricht in den Ausgabestrom schreiben
     	out.writeObject(message);
     	out.flush();
     }
 
-    @Override
+    /** Baut die Verbindung zum Kommunikationspartner ab. */
     public void close() throws IOException {
     	//DONE Studienarbeit: Ausgabestrom leeren (flush) und Verbindung schliessen 
     	out.flush();

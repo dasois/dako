@@ -78,17 +78,22 @@ public abstract class AbstractClient implements Runnable {
     }
 
     //DONE Studienarbeit: Echo-PDU erzeugen und gemaess Protokoll fuellen
+    /**
+     * Erstellen einer Echo-PDU.
+     * @param messageNumber Zähler für die Anzahl der Nachrichten.
+     * @return EchoPDU Die Erstellte Echo-PDU.
+     */
     protected EchoPDU constructEchoPDU(int messageNumber) {
         // Echo-Nachricht aufbauen
         EchoPDU pdu = new EchoPDU();
         
         // Echo PDU befuellen
         pdu.setClientName(threadName);
-        StringBuilder sb = new StringBuilder(messageLength);
+        StringBuilder sb = new StringBuilder(messageLength);//Erstellen der Nachricht die in der pdu übertragen wird.
         for (int i=0; i<messageLength; i++) {
         	sb.append('x');
         }
-        pdu.setMessage(sb.toString());     
+        pdu.setMessage(sb.toString()); //einfügen der Nachricht    
         
         // Letzter Request?
         if (messageNumber == (numberOfMessagesToSend - 1)) {

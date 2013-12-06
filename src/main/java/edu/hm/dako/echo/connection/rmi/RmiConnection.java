@@ -10,7 +10,7 @@ public class RmiConnection implements Connection {
 
     // RMI-Referenz auf den Server
     private RMIEchoServerRemote echoServer;
-
+    /** @param receivedPdu hinterlegt die Antwortnachricht*/
     private EchoPDU receivedPdu;
 
     public RmiConnection(RMIEchoServerRemote echoServer) {
@@ -22,9 +22,13 @@ public class RmiConnection implements Connection {
         return receivedPdu;
     }
 
-    @Override
+   /** Empfängt eine Nachricht und erstellt die Antwort.
+    * @param message Nachricht die die Serverseite empfängt.
+    * @throws Exception Steht für eine vielzahl von Exceptions die beim Remoteprozess auftretten können.*/
     public void send(Serializable message) throws Exception {
     	//DONE Studienarbeit: Aufruf der entfernten Echo-Methode
+    	
+    	
     	receivedPdu = echoServer.echo((EchoPDU) message);
     }
 

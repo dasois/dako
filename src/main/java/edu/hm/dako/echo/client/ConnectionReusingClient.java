@@ -64,7 +64,7 @@ public class ConnectionReusingClient extends AbstractClient {
 		sharedData.incrSentMsgCounter(clientNumber);
 		if(connection instanceof UdpClientConnection){
 			UdpClientConnection udpCon = (UdpClientConnection)connection;
-			udpCon.setTimeout(receiveTimeOut*100);	
+			udpCon.setTimeout(receiveTimeOut*1000);	
 		}
 		boolean successfull = false;
 		for(int j = 0; !successfull; j++){

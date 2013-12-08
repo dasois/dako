@@ -15,7 +15,9 @@ public class RmiClientConnectionFactory implements ConnectionFactory {
     public Connection connectToServer(String remoteServerAddress, int serverPort, int localPort) throws Exception {
     	
     	//DONE Studienarbeit: Lookup durchfuehren und RMI-Connection erzeugen
+    	Log log = LogFactory.getLog(RmiClientConnectionFactory.class);
     	RMIEchoServerRemote remote = (RMIEchoServerRemote) Naming.lookup( "rmi://" + remoteServerAddress + "/RMIEchoServer");
+    	log.debug("Remoteobjekt erzeugt ");
      	RmiConnection rcon = new RmiConnection(remote);
      	return rcon;
     }

@@ -18,7 +18,7 @@ public class UdpServerConnection implements Connection {
 	 * @param serverSocket Über diesen Socket soll in verwendung von UDP kommuniziert werden.
 	 * @throws Exception Fehler in der Verbindung
 	 */
-	public UdpServerConnection(UdpSocket serverSocket) throws Exception {
+	public UdpServerConnection(UdpSocket serverSocket) throws IOException {
 		//DONE Daten aus dem UdpSocket zwischenspeichern, damit es fuer weitere Verbindungsanfragen verwendet werden kann
 
 		this.serverSocket = serverSocket;
@@ -36,12 +36,12 @@ public class UdpServerConnection implements Connection {
 	}
 
 	/** Sendet eine Nachricht an den Kommunikationspartner über UDP. */
-	public void send(Serializable message) throws IOException {
+	public void send(Serializable message) throws Exception {
 		serverSocket.send(udpRemoteObject.getRemoteAddress(),udpRemoteObject.getRemotePort(),message);
 	}
 
 	/** Baut die Verbindung zum Kommunikationspartner ab. */
 	public void close() throws Exception {
-		serverSocket.close();//nicht benutzen
+		//nicht benutzen
 	}
 }

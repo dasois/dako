@@ -5,6 +5,8 @@ import edu.hm.dako.echo.common.ExceptionHandler;
 import edu.hm.dako.echo.common.SharedClientStatistics;
 import edu.hm.dako.echo.connection.Connection;
 import edu.hm.dako.echo.connection.ConnectionFactory;
+import edu.hm.dako.echo.connection.udp.UdpClientConnection;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -38,7 +40,8 @@ public class ConnectionReusingClient extends AbstractClient {
 			connection = connectionFactory.connectToServer(remoteServerAddress, serverPort, localPort);
 			for (int i = 0; i < numberOfMessagesToSend; i++) {
 				try {
-					doEcho(i);
+					doEcho(i,5,5);
+//					doEcho(i);
 				} catch (SocketTimeoutException e) {
 					log.debug(e.getMessage());
 				}
@@ -55,14 +58,17 @@ public class ConnectionReusingClient extends AbstractClient {
 	}
 
 	//TODO Studienarbeit: Fuer die zuverlaessige UDP-Variante ist die Methode doEcho umzuschreiben
-	private void doEcho(int i) throws Exception {
+	private void doEcho(int i,int receiveTimeOut,int maxResend) throws Exception {//i = current message to send, receiveTimeout = seconds to timeout,maxresend maximal number of resend
 		// RTT-Startzeit ermitteln
 		long rttStartTime = System.nanoTime();
 		sharedData.incrSentMsgCounter(clientNumber);
+		if(connection instanceof UdpClientConnection){
+			UdpClientConnection udpCon = (UdpClientConnection)connection;
+			udpCon.setTimeout(receiveTimeOut*100);	
+		}
 		boolean successfull = false;
-		int k = 5;
 		for(int j = 0; !successfull; j++){
-			try{
+			try{				
 				connection.send(constructEchoPDU(i));
 				EchoPDU receivedPdu = (EchoPDU) connection.receive();
 				successfull = true;
@@ -70,22 +76,23 @@ public class ConnectionReusingClient extends AbstractClient {
 				postReceive(i, receivedPdu, rtt);
 				Thread.sleep(clientThinkTime);
 			}catch(Exception e){
-				if(j==k){
+				if(j==maxResend){
 					log.error("übertragung fehlgeschlagen");	
 					log.error(e);
 					successfull = true;
 				}
+				log.error("übertragung fehlgeschlagen");
 			}
 		}
 	}
-	//	 private void doEcho(int i) throws Exception {
-	//		 // RTT-Startzeit ermitteln
-	//		 long rttStartTime = System.nanoTime();
-	//		 sharedData.incrSentMsgCounter(clientNumber);
-	//		 connection.send(constructEchoPDU(i));
-	//		 EchoPDU receivedPdu = (EchoPDU) connection.receive();
-	//		 long rtt = System.nanoTime() - rttStartTime;
-	//		 postReceive(i, receivedPdu, rtt);
-	//		 Thread.sleep(clientThinkTime);
-	//	 }
+		 private void doEcho(int i) throws Exception {
+			 // RTT-Startzeit ermitteln
+			 long rttStartTime = System.nanoTime();
+			 sharedData.incrSentMsgCounter(clientNumber);
+			 connection.send(constructEchoPDU(i));
+			 EchoPDU receivedPdu = (EchoPDU) connection.receive();
+			 long rtt = System.nanoTime() - rttStartTime;
+			 postReceive(i, receivedPdu, rtt);
+			 Thread.sleep(clientThinkTime);
+		 }
 }

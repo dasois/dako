@@ -74,7 +74,7 @@ public final class ServerFactory {
          * Im ImplementationType der naechsten Anweisungen muss der Server, 
     	 * der gestartet werden soll, angegeben werden
          */   	
-        getServer(UserInterfaceInputParameters.ImplementationType.RmiMultiThreaded).start();
+        getServer(UserInterfaceInputParameters.ImplementationType.UDPMultiThreaded).start();
     }
 
     private static class DecoratingServerSocket implements ServerSocket {

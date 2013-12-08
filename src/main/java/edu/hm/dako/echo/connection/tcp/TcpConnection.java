@@ -37,8 +37,8 @@ public class TcpConnection implements Connection {
 
         try {
         	//DONE Studienarbeit: Objektstreams fuer die Ein- und Ausgabe erzeugen
-        	out = new ObjectOutputStream(socket.getOutputStream());	//Öffnen eines Ausgabestroms
-        	in = new ObjectInputStream(socket.getInputStream());	//Öffnen eines EIngabestroms
+        	out = new ObjectOutputStream(this.socket.getOutputStream());	//Öffnen eines Ausgabestroms
+        	in = new ObjectInputStream(this.socket.getInputStream());	//Öffnen eines EIngabestroms
 
             log.debug("Standardgroesse des Empfangspuffers der Verbindung: " + socket.getReceiveBufferSize() +
                     " Byte");

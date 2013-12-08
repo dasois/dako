@@ -13,7 +13,7 @@ public class UdpClientConnection implements Connection {
     /**
      * Timeout fuer {@link UdpSocket#receive(int)}
      */
-    private final int receivingTimeout;
+    private int receivingTimeout;
 
     // weglassen alle Override-Methoden und Inhalt des Konstruktors
     
@@ -40,5 +40,8 @@ public class UdpClientConnection implements Connection {
     public void close() throws IOException {
     	//DONE: Studienarbeit: Socket schliessen
     	clientSocket.close();
+    }
+    public void setTimeout(int t){
+    	receivingTimeout = t;
     }
 }

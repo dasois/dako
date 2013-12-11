@@ -1,0 +1,38 @@
+# 
+# Satzaufbau:
+#
+# 01 Messungstyp als String
+# 02 Implementierungstyp als String
+# 03 Anzahl Client-Threads 
+# 04 Durchschnittliche RTT
+# 05 Maximale RTT
+# 06 Minimale RTT  
+# 07 Durchschnittliche Serverbearbeitungszeit 
+# 08 Anzahl geplanter Requests/Responses
+# 09 Anzahl gesendeter Requests
+# 10 Anzahl empfangener Responses
+# 11 Anzahl verlorener Echo Responses 
+# 12 Maximale Heap-Size des Clients 
+# 13 Startzeit der Messung
+# 14 Endezeit der Messung
+#
+Variation der Threadanzahl, Multi-threaded TCP, 100, 330, 335, 327, 0, 10000, 10000, 10000, 0, 12, 5.12.2013 17:44:5, 5.12.2013 17:44:49
+Variation der Threadanzahl, Multi-threaded TCP, 100, 335, 342, 329, 0, 10000, 10000, 10000, 0, 12, 5.12.2013 17:51:31, 5.12.2013 17:52:16
+Variation der Threadanzahl, Multi-threaded TCP, 100, 331, 335, 328, 0, 10000, 10000, 10000, 0, 12, 5.12.2013 17:52:52, 5.12.2013 17:53:37
+Variation der Threadanzahl, Multi-threaded TCP, 100, 328, 334, 322, 0, 10000, 10000, 10000, 0, 12, 5.12.2013 18:27:4, 5.12.2013 18:27:51
+Variation der Threadanzahl, Multi-threaded TCP, 100, 329, 334, 324, 0, 10000, 10000, 10000, 0, 12, 5.12.2013 18:29:35, 5.12.2013 18:30:19
+Variation der Threadanzahl, Multi-threaded TCP, 200, 329, 333, 326, 0, 20000, 20000, 20000, 0, 20, 5.12.2013 18:32:37, 5.12.2013 18:33:24
+Variation der Threadanzahl, Multi-threaded TCP, 200, 330, 335, 326, 0, 20000, 20000, 20000, 0, 20, 5.12.2013 18:34:53, 5.12.2013 18:35:39
+Variation der Threadanzahl, Multi-threaded TCP, 200, 325, 332, 319, 0, 20000, 20000, 20000, 0, 20, 5.12.2013 18:36:36, 5.12.2013 18:37:21
+Variation der Threadanzahl, Multi-threaded TCP, 200, 327, 333, 318, 0, 20000, 20000, 20000, 0, 20, 5.12.2013 18:37:51, 5.12.2013 18:38:36
+Variation der Threadanzahl, Multi-threaded TCP, 200, 327, 332, 322, 0, 20000, 20000, 20000, 0, 20, 5.12.2013 18:39:15, 5.12.2013 18:40:1
+Variation der Threadanzahl, Multi-threaded TCP, 300, 328, 331, 324, 0, 30000, 30000, 30000, 0, 29, 5.12.2013 18:43:44, 5.12.2013 18:44:31
+Variation der Threadanzahl, Multi-threaded TCP, 300, 328, 333, 322, 0, 30000, 30000, 30000, 0, 29, 5.12.2013 18:45:8, 5.12.2013 18:45:54
+Variation der Threadanzahl, Multi-threaded TCP, 300, 328, 337, 319, 0, 30000, 30000, 30000, 0, 29, 5.12.2013 18:47:16, 5.12.2013 18:48:2
+Variation der Threadanzahl, Multi-threaded TCP, 300, 329, 334, 324, 0, 30000, 30000, 30000, 0, 29, 5.12.2013 18:49:3, 5.12.2013 18:49:49
+Variation der Threadanzahl, Multi-threaded TCP, 300, 328, 333, 321, 0, 30000, 30000, 30000, 0, 29, 5.12.2013 18:50:27, 5.12.2013 18:51:12
+Variation der Threadanzahl, Multi-threaded TCP, 400, 327, 330, 323, 0, 40000, 40000, 40000, 0, 36, 5.12.2013 18:51:41, 5.12.2013 18:52:27
+Variation der Threadanzahl, Multi-threaded TCP, 400, 331, 357, 324, 0, 40000, 40000, 40000, 0, 35, 5.12.2013 18:54:12, 5.12.2013 18:54:59
+Variation der Threadanzahl, Multi-threaded TCP, 400, 329, 335, 322, 0, 40000, 40000, 40000, 0, 35, 5.12.2013 18:55:19, 5.12.2013 18:56:6
+Variation der Threadanzahl, Multi-threaded TCP, 400, 329, 355, 324, 0, 40000, 40000, 40000, 0, 35, 5.12.2013 18:56:34, 5.12.2013 18:57:21
+Variation der Threadanzahl, Multi-threaded TCP, 400, 344, 361, 331, 0, 40000, 40000, 40000, 0, 35, 5.12.2013 18:57:50, 5.12.2013 18:58:39

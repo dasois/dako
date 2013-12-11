@@ -77,11 +77,11 @@ public class ConnectionReusingClient extends AbstractClient {
 				Thread.sleep(clientThinkTime);
 			}catch(Exception e){
 				if(j==maxResend){
-					log.error("übertragung fehlgeschlagen");	
+					log.error("ï¿½bertragung fehlgeschlagen");	
 					log.error(e);
 					successfull = true;
 				}
-				log.error("übertragung fehlgeschlagen");
+				log.error("ï¿½bertragung fehlgeschlagen");
 			}
 		}
 	}

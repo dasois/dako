@@ -92,6 +92,7 @@ public class Tester implements BenchmarkingClientUserInterface {
         if (ImplementationType.RmiMultiThreaded == type) {
         	param.setRemoteServerPort(ServerFactory.RMI_SERVER_PORT);
         }
+		Thread.sleep(2000);
 
         // Benchmarking-Client instanzieren und Benchmark starten
         BenchmarkingClient benchClient = new BenchmarkingClient();
